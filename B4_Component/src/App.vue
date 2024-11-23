@@ -57,7 +57,7 @@
      1. Truyen gia tri tu component cha -> component con => props
      2. Truyen su kien tu component cha -> component con => emits
      3. Dong bo du lieu giua component con & component cha (two way binding)
-     VUE JS 3.4 DO LEN
+     VUE JS 3.4 DO LEN => defineModel
        -->
     <!-- Truyen CHA -> CON => LUON LUON LA STRING -->
     <p>Count = {{ number }}</p>
@@ -68,6 +68,8 @@
       :giaTri="number"
       @increaseNumberBy="increaseNumber"
     />
+    <p>Cha: {{ username }} - {{ email }}</p>
+    <ComponetVModel v-model:u1="username" v-model:u2="email" />
     <!-- <button-component />
     <span>Cha</span>
      <ComponentA /> -->
@@ -76,6 +78,7 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import ButtonComponent from './component/ButtonComponent.vue'
+import ComponetVModel from './component/ComponetVModel.vue'
 const number = ref(5)
 const increaseNumber = () => {
   number.value++
@@ -161,4 +164,6 @@ const tinhTongHaiSo = () => {
   // sum.value = Number(numberFirst.value) + Number(numberSecond.value)
   sum.value = numberFirst.value + numberSecond.value
 }
+const email = ref('')
+const username = ref('')
 </script>
